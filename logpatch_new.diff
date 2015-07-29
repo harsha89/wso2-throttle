@@ -1,0 +1,107 @@
+Index: src/main/java/org/wso2/carbon/throttle/core/CallerContext.java
+===================================================================
+--- src/main/java/org/wso2/carbon/throttle/core/CallerContext.java	(revision 33376)
++++ src/main/java/org/wso2/carbon/throttle/core/CallerContext.java	(working copy)
+@@ -113,10 +113,12 @@
+         int maxRequest = configuration.getMaximumRequestPerUnitTime();
+         if (!(maxRequest == 0)) {
+             if (this.globalCount.get() <= maxRequest - 1) {    //If the globalCount is less than max request
+-                if (log.isDebugEnabled()) {
+-                    log.debug("Access allowed :: " + (maxRequest - this.globalCount.get())
+-                            + " of available of " + maxRequest + " connections");
+-                }
++
++	            log.info("CallerContext Checking access if unit time is not over >> Access allowed=" +
++	                     (maxRequest - this.globalCount.get()) + " available=" + maxRequest + " key="+this.getID()
++	                     +" currentGlobalCount=" + globalCount + " currentTime=" + currentTime+" nextTimeWindow="+this.nextTimeWindow +
++	                     " currentLocalCount=" + localCount + " Tier="+ configuration.getID());
++
+                 canAccess = true;     // can continue access
+                 this.globalCount.incrementAndGet();
+                 this.localCount.incrementAndGet();
+@@ -151,10 +153,12 @@
+                     // time period has already over
+                     if (this.nextAccessTime
+                             <= currentTime) {
+-                        if (log.isDebugEnabled()) {
+-                            log.debug("Access allowed :: " + (maxRequest)
+-                                    + " of available of " + maxRequest + " connections");
+-                        }
++
++	                    log.info("CallerContext Checking access if unit time is not over >> Access allowed=" +
++	                             (maxRequest - this.globalCount.get()) + " available=" + maxRequest + " key="+this.getID()
++	                             +" currentGlobalCount=" + globalCount + " currentTime=" + currentTime+" nextTimeWindow="+this.nextTimeWindow +
++	                             " currentLocalCount=" + localCount + " Tier="+ configuration.getID());
++
+                         // remove previous caller context
+                         if (this.nextTimeWindow != 0) {
+                             throttleContext.removeCallerContext(ID);
+@@ -211,10 +215,12 @@
+                 //  if caller in prohibit session  and prohibit period has just over
+                 if ((this.nextAccessTime == 0) ||
+                         (this.nextAccessTime <= currentTime)) {
+-                    if (log.isDebugEnabled()) {
+-                        log.debug("Access allowed :: " + (maxRequest) + " of available of "
+-                                + maxRequest + " connections");
+-                    }
++
++	                log.info("CallerContext Checking access if unit time over >> Access allowed=" +
++	                         (maxRequest - this.globalCount.get()) + " available=" + maxRequest + " key="+this.getID()
++	                         +" currentGlobalCount=" + globalCount + " currentTime=" + currentTime+" nextTimeWindow="+this.nextTimeWindow +
++	                         " currentLocalCount=" + localCount + " Tier="+ configuration.getID());
++
+                     //remove previous callercontext instance
+                     if (this.nextTimeWindow != 0) {
+                         throttleContext.removeCallerContext(ID);
+@@ -318,11 +324,6 @@
+             throw new ThrottleException("Invalid Throttle Configuration");
+         }
+ 
+-        if(log.isDebugEnabled()){
+-            log.debug("Current global count=" + globalCount);
+-            log.debug("Current local count=" + localCount);
+-        }
+-
+         // if caller access first time in his new session
+         if (this.firstAccessTime == 0) {
+             initAccess(configuration, throttleContext, currentTime);
+@@ -374,4 +375,4 @@
+      */
+     public abstract int getType();
+ 
+-}
+\ No newline at end of file
++}
+Index: src/main/java/org/wso2/carbon/throttle/core/RoleBasedAccessRateController.java
+===================================================================
+--- src/main/java/org/wso2/carbon/throttle/core/RoleBasedAccessRateController.java	(revision 33376)
++++ src/main/java/org/wso2/carbon/throttle/core/RoleBasedAccessRateController.java	(working copy)
+@@ -118,7 +118,7 @@
+ 
+                     if (!caller.canAccess(throttleContext, configuration, currentTime)) {
+                         //if current caller cannot access , then perform cleaning
+-                        log.info(ACCESS_DENIED_TEMPORALLY);
++                        log.info(ACCESS_DENIED_TEMPORALLY + " Tier=" + roleID +" Key=" + caller.getID());
+                         throttleContext.processCleanList(currentTime);
+                         accessInformation.setAccessAllowed(false);
+                         accessInformation.setFaultReason(ACCESS_DENIED_TEMPORALLY);
+@@ -142,4 +142,4 @@
+         accessInformation.setAccessAllowed(true);
+         return accessInformation;
+     }
+-}
+\ No newline at end of file
++}
+Index: src/main/java/org/wso2/carbon/throttle/core/ThrottleUpdateClusterMessage.java
+===================================================================
+--- src/main/java/org/wso2/carbon/throttle/core/ThrottleUpdateClusterMessage.java	(revision 33376)
++++ src/main/java/org/wso2/carbon/throttle/core/ThrottleUpdateClusterMessage.java	(working copy)
+@@ -61,7 +61,7 @@
+         if (throttleDataHolder != null) {
+             if (keys != null && !keys.isEmpty() && callerContexts != null && !callerContexts.isEmpty()) {
+                 int i = 0;
+-                log.debug("Received ThrottleUpdateClusterMessage with key size : " + keys.size() + " UUID : " + this.getUuid());
++                log.info("Received ThrottleUpdateClusterMessage with key size : " + keys.size() + " UUID : " + this.getUuid());
+                 log.trace("Start executing ClusterMessage : " + this.getUuid());
+                 for (String key : keys) {
+                     CallerContext localCallerContext = throttleDataHolder.getCallerContext(key);

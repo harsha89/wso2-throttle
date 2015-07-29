@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="throttle.core.services" name="%throttle.core.services.name" description="%throttle.core.services.description"/>
+    <Designate pid="throttle.core.services">
+        <Object ocdref="throttle.core.services"/>
+    </Designate>
+</metatype:MetaData>
