@@ -101,7 +101,6 @@ public abstract class CallerContext implements Serializable, Cloneable {
         this.firstAccessTime = currentTime;
         this.nextTimeWindow = this.firstAccessTime + this.unitTime;
         //Also we need to pick counter value associated with time window.
-        this.localCount.set(1);
         throttleContext.addCallerContext(this, this.id);
         throttleContext.replicateTimeWindow(this.id);
     }
@@ -121,8 +120,8 @@ public abstract class CallerContext implements Serializable, Cloneable {
             if ((this.globalCount.get() + this.localCount.get()) < maxRequest) {    //If the globalCount is less than max request
                 if (log.isDebugEnabled()) {
                     log.debug("CallerContext Checking access if unit time is not over and less than max count>> Access "
-                            + "allowed=" + (maxRequest - (this.globalCount.get() + this.localCount.get())) + " available="
-                            + maxRequest +" key=" + this.getId() + " currentGlobalCount=" + globalCount + " currentTime="
+                            + "allowed=" + maxRequest + " available="+ (maxRequest - (this.globalCount.get() + this.localCount.get()))
+                            +" key=" + this.getId() + " currentGlobalCount=" + globalCount + " currentTime="
                             +  currentTime + " " + "nextTimeWindow=" + this.nextTimeWindow + " currentLocalCount=" + localCount + " Tier="
                             + configuration.getID() + " nextAccessTime=" + this.nextAccessTime);
                 }
@@ -159,8 +158,9 @@ public abstract class CallerContext implements Serializable, Cloneable {
                     if (this.nextAccessTime <= currentTime) {
                         if (log.isDebugEnabled()) {
                             log.debug("CallerContext Checking access if unit time is not over before time window exceed >> "
-                                    + "Access allowed=" + (maxRequest - (this.globalCount.get() + this.localCount.get())) + " available=" +
-                                    maxRequest + " key=" + this.getId() + " currentGlobalCount=" + globalCount
+                                    + "Access allowed=" + maxRequest + " available="
+                                    +  (maxRequest - (this.globalCount.get() + this.localCount.get()))
+                                    + " key=" + this.getId() + " currentGlobalCount=" + globalCount
                                     + " currentTime=" + currentTime + " " + "nextTimeWindow=" + this.nextTimeWindow
                                     + " currentLocalCount=" + localCount + " " + "Tier=" + configuration.getID()
                                     + " nextAccessTime=" + this.nextAccessTime);
@@ -172,23 +172,18 @@ public abstract class CallerContext implements Serializable, Cloneable {
                         // reset the states so that, this is the first access
                         this.nextAccessTime = 0;
                         canAccess = true;
-/*
-                        synchronized (id.intern()) {
-                            long sharedTimestamp = SharedParamManager.getSharedTimestamp(id);
-                            if (firstAccessTime == sharedTimestamp || sharedTimestamp == 0) {//This means no one reset it yet
-	                            SharedParamManager.setSharedTimestamp(id, currentTime);
-	                            SharedParamManager.setDistributedCounter(id, 0);
-                            } else {
-                                currentTime = SharedParamManager.getSharedTimestamp(id);
-                            }
-                        }*/
+
                         this.globalCount.set(0);// can access the system   and this is same as first access
                         this.localCount.set(1);
                         this.firstAccessTime = currentTime;
                         this.nextTimeWindow = currentTime + configuration.getUnitTime();
-                        // registers caller and send the current state to others (clustered env)
                         throttleContext.addAndFlushCallerContext(this, this.id);
                         throttleContext.replicateTimeWindow(this.id);
+                        //TODO
+                        if(true) {
+                            log.info("Caller=" + this.getId() + " has reset counters and added for replication when unit "
+                                      + "time is not over");
+                        }
                     } else {
                         if (log.isDebugEnabled()) {
                             String type = ThrottleConstants.IP_BASE == configuration.getType() ?
@@ -225,12 +220,11 @@ public abstract class CallerContext implements Serializable, Cloneable {
                     throttleContext.removeAndFlushCaller(this.id);
                 }
                 if (log.isDebugEnabled()) {
-                    log.debug("CallerContext Checking access if unit time over next time window>> Access allowed=" +
-                              (maxRequest - (this.globalCount.get() + this.localCount.get())) + " available=" + maxRequest + " key=" + this.getId()
-                            + " currentGlobalCount=" + globalCount + " currentTime=" + currentTime + " nextTimeWindow="
-                            + this.nextTimeWindow +
-                            " currentLocalCount=" + localCount + " Tier=" + configuration.getID() + " nextAccessTime="
-                            + this.nextAccessTime);
+                    log.debug("CallerContext Checking access if unit time over next time window>> Access allowed="
+                            +  maxRequest + " available=" + (maxRequest - (this.globalCount.get() + this.localCount.get()))
+                            + " key=" + this.getId()+ " currentGlobalCount=" + globalCount + " currentTime=" + currentTime
+                            + " nextTimeWindow=" + this.nextTimeWindow +" currentLocalCount=" + localCount + " Tier="
+                            + configuration.getID() + " nextAccessTime="+ this.nextAccessTime);
                 }
                 canAccess = true; // this is bonus access
                 //next time callers can access as a new one
@@ -239,10 +233,10 @@ public abstract class CallerContext implements Serializable, Cloneable {
                 // OR if caller in prohibit session  and prohibit period has just over
                 if ((this.nextAccessTime == 0) || (this.nextAccessTime <= currentTime)) {
                     if (log.isDebugEnabled()) {
-                        log.info("CallerContext Checking access if unit time over>> Access allowed=" +
-                                 (maxRequest - (this.globalCount.get() + this.localCount.get())) + " available=" + maxRequest + " key=" + this.getId()
-                                + " currentGlobalCount=" + globalCount + " currentTime=" + currentTime + " nextTimeWindow=" + this.nextTimeWindow +
-                                " currentLocalCount=" + localCount + " Tier=" + configuration.getID() + " nextAccessTime="
+                        log.debug("CallerContext Checking access if unit time over>> Access allowed=" + maxRequest
+                                + " available=" + (maxRequest - (this.globalCount.get() + this.localCount.get())) + " key=" + this.getId()
+                                + " currentGlobalCount=" + globalCount + " currentTime=" + currentTime + " nextTimeWindow=" + this.nextTimeWindow
+                                + " currentLocalCount=" + localCount + " Tier=" + configuration.getID() + " nextAccessTime="
                                 + this.nextAccessTime);
                     }
                     //remove previous callercontext instance
@@ -253,16 +247,6 @@ public abstract class CallerContext implements Serializable, Cloneable {
                     this.nextAccessTime = 0;
                     canAccess = true;
 
-                    /*synchronized (id.intern()) {
-	                    long sharedTimestamp = SharedParamManager.getSharedTimestamp(id);
-                        if (firstAccessTime == sharedTimestamp) {
-	                        SharedParamManager.setSharedTimestamp(id, currentTime);
-	                        SharedParamManager.setDistributedCounter(id, 0);
-                        } else {
-                            currentTime = sharedTimestamp;
-                        }
-                    }*/
-
                     this.globalCount.set(0);// can access the system   and this is same as first access
                     this.localCount.set(1);
                     this.firstAccessTime = currentTime;
@@ -270,6 +254,11 @@ public abstract class CallerContext implements Serializable, Cloneable {
                     // registers caller and send the current state to others (clustered env)
                     throttleContext.addAndFlushCallerContext(this, id);
                     throttleContext.replicateTimeWindow(this.id);
+                    //TODO
+                    if(true) {
+                        log.info("Caller=" + this.getId() + " has reset counters and added for replication when unit "
+                                  + "time is over");
+                    }
                 } else {
                     // if  caller in prohibit session  and prohibit period has not  over
                     if (log.isDebugEnabled()) {
@@ -316,7 +305,7 @@ public abstract class CallerContext implements Serializable, Cloneable {
                     }
                     //Removes the previous callercontext and Sends the current state to
                     //  others (clustered env)
-                    throttleContext.removeAndFlushCaller(id);
+                    throttleContext.removeAndDestroySharedParamsOfCaller(id);
                 }
             } else {
                 // if number of access for a unit time has just been greater than MAX
@@ -330,7 +319,7 @@ public abstract class CallerContext implements Serializable, Cloneable {
                         }
                         //Removes the previous callercontext and Sends
                         //  the current state to others (clustered env)
-                        throttleContext.removeAndFlushCaller(id);
+                        throttleContext.removeAndDestroySharedParamsOfCaller(id);
                     }
                 }
             }
@@ -359,11 +348,6 @@ public abstract class CallerContext implements Serializable, Cloneable {
                 || configuration.getProhibitTimePeriod() < 0) {
             throw new ThrottleException("Invalid Throttle Configuration");
         }
-
-       /* if (log.isDebugEnabled()) {
-            log.debug("Current global count=" + globalCount);
-            log.debug("Current local count=" + localCount);
-        }*/
 
         // if caller access first time in his new session
         if (this.firstAccessTime == 0) {

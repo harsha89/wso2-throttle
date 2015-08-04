@@ -11,26 +11,26 @@ Export-Package: org.wso2.carbon.throttle.core.impl.domainbase;uses:="o
  .carbon.throttle.core.impl.domainbase,org.wso2.carbon.throttle.core.i
  mpl.ipbase,org.wso2.carbon.throttle.core.impl.rolebase,org.wso2.carbo
  n.throttle.core";version="4.2.0",org.wso2.carbon.throttle.core;uses:=
- "org.apache.commons.logging,org.wso2.carbon.throttle.core.factory,org
- .wso2.carbon.throttle.core.internal,com.hazelcast.core,javax.xml.name
+ "org.apache.commons.logging,org.wso2.carbon.throttle.core.factory,com
+ .hazelcast.core,org.wso2.carbon.throttle.core.internal,javax.xml.name
  space,org.apache.axis2.context,org.apache.neethi,org.apache.neethi.bu
- ilders.xml,org.apache.axiom.om,org.apache.axis2.clustering,javax.cach
- e";version="4.2.0",org.wso2.carbon.throttle.module;uses:="org.apache.
- axis2,org.apache.commons.logging,org.apache.neethi,org.apache.axis2.c
- ontext,org.wso2.carbon.throttle.core,javax.xml.namespace,org.apache.a
- xis2.description,org.apache.axis2.util,org.apache.axis2.engine,org.ap
- ache.neethi.builders.xml,org.apache.axis2.modules,org.apache.axiom.om
- ";version="4.2.0",org.wso2.carbon.throttle.module.utils.impl;uses:="o
- rg.wso2.carbon.throttle.module.utils";version="4.2.0",org.wso2.carbon
- .throttle.module.handler;uses:="org.apache.axis2.description,org.apac
- he.axis2,org.wso2.carbon.throttle.module,org.apache.axis2.engine,org.
- apache.axis2.context,org.apache.axis2.transport.http,org.apache.commo
- ns.logging,org.apache.axis2.handlers,org.wso2.carbon.throttle.core,ja
- vax.xml.namespace,org.wso2.carbon.throttle.module.utils.impl,org.wso2
- .carbon.throttle.module.utils,javax.cache,javax.servlet.http";version
- ="4.2.0",org.wso2.carbon.throttle.module.utils;uses:="org.wso2.carbon
- .throttle.module.utils.impl,org.wso2.carbon.throttle.core,org.apache.
- commons.logging";version="4.2.0"
+ ilders.xml,org.apache.axiom.om,javax.cache";version="4.2.0",org.wso2.
+ carbon.throttle.module;uses:="org.apache.axis2,org.apache.commons.log
+ ging,org.apache.neethi,org.apache.axis2.context,org.wso2.carbon.throt
+ tle.core,javax.xml.namespace,org.apache.axis2.description,org.apache.
+ axis2.util,org.apache.axis2.engine,org.apache.neethi.builders.xml,org
+ .apache.axis2.modules,org.apache.axiom.om";version="4.2.0",org.wso2.c
+ arbon.throttle.module.utils.impl;uses:="org.wso2.carbon.throttle.modu
+ le.utils";version="4.2.0",org.wso2.carbon.throttle.module.handler;use
+ s:="org.apache.axis2.description,org.apache.axis2,org.wso2.carbon.thr
+ ottle.module,org.apache.axis2.engine,org.apache.axis2.context,org.apa
+ che.axis2.transport.http,org.apache.commons.logging,org.apache.axis2.
+ handlers,org.wso2.carbon.throttle.core,javax.xml.namespace,org.wso2.c
+ arbon.throttle.module.utils.impl,org.wso2.carbon.throttle.module.util
+ s,javax.cache,javax.servlet.http";version="4.2.0",org.wso2.carbon.thr
+ ottle.module.utils;uses:="org.wso2.carbon.throttle.module.utils.impl,
+ org.wso2.carbon.throttle.core,org.apache.commons.logging";version="4.
+ 2.0"
 Built-By: harsha
 Tool: Bnd-1.43.0
 Bundle-Name: org.wso2.carbon.throttle.core
@@ -39,7 +39,7 @@ Bundle-Vendor: WSO2 Inc
 DynamicImport-Package: *
 Build-Jdk: 1.6.0_45
 Bundle-Version: 4.2.0
-Bnd-LastModified: 1438002579345
+Bnd-LastModified: 1438671815975
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
 Bundle-Description: Platform Parent pom hold the properties, plugins w
@@ -49,18 +49,17 @@ Import-Package: com.hazelcast.core;resolution:=optional;version="[3.4,
  4)",javax.cache;resolution:=optional;version="[1.0,2)",javax.servlet.
  http;resolution:=optional;version="[2.6,3)",javax.xml.namespace;resol
  ution:=optional,org.apache.axiom.om;version="[1.2.11.wso2v2,1.3.0)",o
- rg.apache.axis2;version="[1.6.1.wso2v1,1.7.0)",org.apache.axis2.clust
- ering;version="[1.6.1.wso2v1,1.7.0)",org.apache.axis2.context;version
- ="[1.6.1.wso2v1,1.7.0)",org.apache.axis2.description;version="[1.6.1.
- wso2v1,1.7.0)",org.apache.axis2.engine;version="[1.6.1.wso2v1,1.7.0)"
- ,org.apache.axis2.handlers;version="[1.6.1.wso2v1,1.7.0)",org.apache.
- axis2.modules;version="[1.6.1.wso2v1,1.7.0)",org.apache.axis2.transpo
- rt.http;version="[1.6.1.wso2v1,1.7.0)",org.apache.axis2.util;version=
- "[1.6.1.wso2v1,1.7.0)",org.apache.commons.logging;version="[1.1,2)",o
- rg.apache.neethi;version="[2.0.4.wso2v4,3.1.0)",org.apache.neethi.bui
- lders.xml;version="[2.0.4.wso2v4,3.1.0)",org.osgi.service.component;r
- esolution:=optional;version="[1.2,2)",org.wso2.carbon.registry.core.s
- ervice;version="1.0.1"
+ rg.apache.axis2;version="[1.6.1.wso2v1,1.7.0)",org.apache.axis2.conte
+ xt;version="[1.6.1.wso2v1,1.7.0)",org.apache.axis2.description;versio
+ n="[1.6.1.wso2v1,1.7.0)",org.apache.axis2.engine;version="[1.6.1.wso2
+ v1,1.7.0)",org.apache.axis2.handlers;version="[1.6.1.wso2v1,1.7.0)",o
+ rg.apache.axis2.modules;version="[1.6.1.wso2v1,1.7.0)",org.apache.axi
+ s2.transport.http;version="[1.6.1.wso2v1,1.7.0)",org.apache.axis2.uti
+ l;version="[1.6.1.wso2v1,1.7.0)",org.apache.commons.logging;version="
+ [1.1,2)",org.apache.neethi;version="[2.0.4.wso2v4,3.1.0)",org.apache.
+ neethi.builders.xml;version="[2.0.4.wso2v4,3.1.0)",org.osgi.service.c
+ omponent;resolution:=optional;version="[1.2,2)",org.wso2.carbon.regis
+ try.core.service;version="1.0.1"
 Bundle-DocURL: http://wso2.org
 Bundle-SymbolicName: org.wso2.carbon.throttle.core
 Axis2Module: org.wso2.carbon.throttle.core-4.2.0

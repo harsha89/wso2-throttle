@@ -27,7 +27,7 @@ import org.wso2.carbon.throttle.core.impl.rolebase.RoleBaseThrottleContext;
 public class ThrottleContextFactory {
 
     private static final ThrottleReplicator throttleReplicator = new ThrottleReplicator();
-
+    private static final ThrottleWindowReplicator throttleWindowReplicator = new ThrottleWindowReplicator();
     /**
      * To create a ThrottleContext for the given throttle type
      * Needs to provide a throttle configuration
@@ -47,5 +47,14 @@ public class ThrottleContextFactory {
         } else {
             throw new ThrottleException("Unknown throttle type");
         }
+    }
+
+    /**
+     * Ger throttle window replicator instance to make sure that there will be one throttle replicator in the implementation
+     *
+     * @return ThrottleWindowReplicator instance
+     */
+    public static ThrottleWindowReplicator getThrottleWindowReplicatorInstance() {
+        return throttleWindowReplicator;
     }
 }

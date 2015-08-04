@@ -18,6 +18,7 @@
 
 package org.wso2.carbon.throttle.core;
 
+import com.hazelcast.core.IFunction;
 import org.apache.axis2.context.ConfigurationContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -95,10 +96,8 @@ public class ThrottleReplicator {
         public void run() {
             try {
                 if (!set.isEmpty()) {
-                    int keysReplicated = 0;
                     for (String key : set) {
                         synchronized (key.intern()) {
-                            keysReplicated++;
                             ThrottleDataHolder dataHolder = (ThrottleDataHolder)
                                     configContext.getProperty(ThrottleConstants.THROTTLE_INFO_KEY);
                             CallerContext callerContext = dataHolder.getCallerContext(key);
@@ -113,23 +112,17 @@ public class ThrottleReplicator {
 	                                //First put local counter to variable and reset it just after it because
 	                                //if there are incoming requests coming. the local counter will be updated
 	                                //if that happen, reset will cause to miss the additional requests come after
-	                                //localcounter value taken into the consideration
+	                                //local counter value taken into the consideration
 	                                long localCounter = callerContext.getLocalCounter();
 	                                callerContext.resetLocalCounter();
-	                                Long distributedCounter = SharedParamManager.addAndGetDistributedCounter(id, localCounter);
+	                                Long distributedCounter = SharedParamManager.asyncGetAndAddDistributedCounter(id, localCounter);
 	                                //Update instance global counter with distributed counter
-                                    callerContext.setGlobalCounter(distributedCounter);
-                                    if(log.isDebugEnabled()) {
-                                        log.debug("Increasing counters of context :" + callerContext.getId() + " "
-                                                  + "replicatedCountAfterUpdate = " + distributedCounter);
+                                    callerContext.setGlobalCounter(distributedCounter + localCounter);
+                                    if(true) {
+                                        log.info("Increasing counters of context :" + callerContext.getId() + " "
+                                                  + "Replicated Count After  Update : distributedCounter =" +distributedCounter
+                                                  + " localCounter=" + localCounter + " total=" + (distributedCounter + localCounter));
                                     }
-                                }
-                                if (keysReplicated >= keysToReplicate) {
-                                    if (log.isDebugEnabled()) {
-                                        log.debug("Number of keys to replicated reached maximum " + keysReplicated);
-                                        log.debug("Number of entries to be replicated : " + set.size());
-                                    }
-                                    break;
                                 }
                             }
 	                        set.remove(key);

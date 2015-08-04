@@ -11,6 +11,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerContext.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerContext.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleConstants.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleConstants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleContext.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleContext.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/factory/ThrottleContextFactory.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/factory/ThrottleContextFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleReplicator.java" afterPath="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleReplicator.java" />
     </list>
     <ignored path="org.wso2.carbon.throttle.core.iws" />
@@ -38,63 +39,44 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerContext.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="221" column="80" selection-start-line="221" selection-start-column="80" selection-end-line="221" selection-end-column="80" />
-              <folding>
-                <element signature="e#0#20121#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoleBasedAccessRateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/RoleBasedAccessRateController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+              <caret line="284" column="97" selection-start-line="284" selection-start-column="82" selection-end-line="284" selection-end-column="97" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CallerContextFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/factory/CallerContextFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoleBaseCallerContext.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/impl/rolebase/RoleBaseCallerContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-              <folding>
-                <element signature="e#989#990#0" expanded="true" />
-                <element signature="e#1014#1015#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConcurrentAccessController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ConcurrentAccessController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThrottleContext.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ThrottleContext.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleContext.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.1053283">
+              <caret line="446" column="61" selection-start-line="446" selection-start-column="61" selection-end-line="446" selection-end-column="61" />
+              <folding>
+                <element signature="e#3486#3487#0" expanded="true" />
+                <element signature="e#3530#3531#0" expanded="true" />
+                <element signature="e#11308#11309#0" expanded="true" />
+                <element signature="e#11346#11347#0" expanded="true" />
+                <element signature="e#18031#18032#0" expanded="true" />
+                <element signature="e#18058#18059#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThrottleDataHolder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleDataHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="392" column="57" selection-start-line="392" selection-start-column="41" selection-end-line="392" selection-end-column="57" />
+              <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConcurrentNavigableMap.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/jdk1.6.0_45/src.zip!/java/util/concurrent/ConcurrentNavigableMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -104,22 +86,8 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleConstants.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="152" column="65" selection-start-line="152" selection-start-column="65" selection-end-line="152" selection-end-column="65" />
-              <folding>
-                <element signature="e#0#5753#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThrottleWindowReplicator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleWindowReplicator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1351352">
-              <caret line="121" column="40" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#6206#0" expanded="true" />
-              </folding>
+              <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -134,11 +102,44 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SharedParamManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/SharedParamManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThrottleWindowReplicator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleWindowReplicator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="149" column="16" selection-start-line="149" selection-start-column="16" selection-end-line="149" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ThrottleReplicator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleReplicator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="110" column="66" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="66" />
+              <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+              <folding>
+                <element signature="e#2010#2294#0" expanded="true" />
+                <element signature="e#2293#2294#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleBasedAccessRateController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/RoleBasedAccessRateController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="121" column="48" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -173,12 +174,14 @@
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/AbstractSharedParamManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/SharedParamFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/LocalParamManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleUpdateClusterMessage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/impl/ipbase/IPBaseThrottleContext.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/factory/ThrottleContextFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/SharedParamManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleReplicator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleUpdateClusterMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleContext.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerContext.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleWindowReplicator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerContext.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleContext.java" />
       </list>
     </option>
   </component>
@@ -207,10 +210,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
+    <option name="x" value="-9" />
     <option name="y" value="19" />
-    <option name="width" value="1940" />
-    <option name="height" value="1041" />
+    <option name="width" value="1938" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -237,7 +240,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -398,6 +400,7 @@
       </pane>
       <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -409,7 +412,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../../../../apim/repos/hazelcast" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../../../../apim/repos/carbon-apimgt_duplicate" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="162" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
@@ -442,6 +445,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="ignore_missing_gitignore" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -797,7 +801,16 @@
       <workItem from="1438146225783" duration="4845000" />
       <workItem from="1438152404337" duration="6032000" />
       <workItem from="1438160969426" duration="1949000" />
-      <workItem from="1438164099504" duration="5554000" />
+      <workItem from="1438164099504" duration="11273000" />
+      <workItem from="1438191321796" duration="2760000" />
+      <workItem from="1438241776386" duration="3856000" />
+      <workItem from="1438248738716" duration="2235000" />
+      <workItem from="1438251283498" duration="9401000" />
+      <workItem from="1438279117021" duration="5113000" />
+      <workItem from="1438523887913" duration="1282000" />
+      <workItem from="1438577959781" duration="16342000" />
+      <workItem from="1438620994882" duration="8857000" />
+      <workItem from="1438666215614" duration="10525000" />
     </task>
     <task id="LOCAL-00001">
       <created>1436388180277</created>
@@ -829,11 +842,29 @@
       <option name="project" value="LOCAL" />
       <updated>1438078725474</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006">
+      <created>1438259599630</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1438259599630</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1438301636358</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1438301636358</updated>
+    </task>
+    <task id="LOCAL-00008">
+      <created>1438301934825</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1438301934825</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277500000" />
+    <option name="totallyTimeSpent" value="343590000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -856,14 +887,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="19" width="1940" height="1041" extended-state="6" />
-    <editor active="false" />
+    <frame x="-9" y="19" width="1938" height="1040" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TCPMON" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29181084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18360277" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -875,12 +906,12 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24412394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24278075" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42675894" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -911,19 +942,19 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerContext.java</url>
-          <line>203</line>
+          <line>198</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerContext.java</url>
-          <line>122</line>
+          <line>121</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleContext.java</url>
-          <line>214</line>
+          <line>216</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -937,50 +968,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/SharedParamManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleReplicator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="57" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="351" column="25" selection-start-line="351" selection-start-column="25" selection-end-line="351" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#20121#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/jdk1.8.0_40/src.zip!/java/util/concurrent/atomic/AtomicInteger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="203" column="21" selection-start-line="203" selection-start-column="21" selection-end-line="203" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#20121#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1128,7 +1120,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,45 +1137,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/hazelcast/hazelcast-all/3.4.2/hazelcast-all-3.4.2.jar!/com/hazelcast/concurrent/atomiclong/AtomicLongProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="47" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/hazelcast/wso2/hazelcast/3.0.1.wso2v1/hazelcast-3.0.1.wso2v1.jar!/com/hazelcast/core/IAtomicLong.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/impl/domainbase/DomainBaseThrottleContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/impl/ipbase/IPBaseThrottleContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/factory/ThrottleContextFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="75" selection-start-line="28" selection-start-column="75" selection-end-line="28" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -1203,107 +1159,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleDataHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#2240#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#1475#1476#0" expanded="false" />
-            <element signature="e#1534#1535#0" expanded="false" />
-            <element signature="e#1947#1948#0" expanded="false" />
-            <element signature="e#2001#2002#0" expanded="false" />
-            <element signature="e#2056#2057#0" expanded="false" />
-            <element signature="e#2103#2104#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/jdk1.6.0_45/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2997" column="2" selection-start-line="2997" selection-start-column="2" selection-end-line="2997" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#115569#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#13893#13894#0" expanded="false" />
-            <element signature="e#13945#13946#0" expanded="false" />
-            <element signature="e#19570#19571#0" expanded="false" />
-            <element signature="e#19616#19617#0" expanded="false" />
-            <element signature="e#21553#21554#0" expanded="false" />
-            <element signature="e#21590#21591#0" expanded="false" />
-            <element signature="e#23479#23480#0" expanded="false" />
-            <element signature="e#23507#23508#0" expanded="false" />
-            <element signature="e#23763#23764#0" expanded="false" />
-            <element signature="e#23789#23790#0" expanded="false" />
-            <element signature="e#30379#30380#0" expanded="false" />
-            <element signature="e#30448#30449#0" expanded="false" />
-            <element signature="e#37320#37321#0" expanded="false" />
-            <element signature="e#37377#37378#0" expanded="false" />
-            <element signature="e#47632#47633#0" expanded="false" />
-            <element signature="e#47696#47697#0" expanded="false" />
-            <element signature="e#55791#55792#0" expanded="false" />
-            <element signature="e#55828#55829#0" expanded="false" />
-            <element signature="e#56441#56442#0" expanded="false" />
-            <element signature="e#56497#56498#0" expanded="false" />
-            <element signature="e#58530#58531#0" expanded="false" />
-            <element signature="e#58560#58561#0" expanded="false" />
-            <element signature="e#62469#62470#0" expanded="false" />
-            <element signature="e#62511#62512#0" expanded="false" />
-            <element signature="e#65740#65741#0" expanded="false" />
-            <element signature="e#65771#65772#0" expanded="false" />
-            <element signature="e#69255#69256#0" expanded="false" />
-            <element signature="e#69294#69295#0" expanded="false" />
-            <element signature="e#72693#72694#0" expanded="false" />
-            <element signature="e#72737#72738#0" expanded="false" />
-            <element signature="e#75286#75287#0" expanded="false" />
-            <element signature="e#75345#75346#0" expanded="false" />
-            <element signature="e#79559#79560#0" expanded="false" />
-            <element signature="e#79610#79611#0" expanded="false" />
-            <element signature="e#79994#79995#0" expanded="false" />
-            <element signature="e#80043#80044#0" expanded="false" />
-            <element signature="e#88036#88037#0" expanded="false" />
-            <element signature="e#88093#88094#0" expanded="false" />
-            <element signature="e#89486#89487#0" expanded="false" />
-            <element signature="e#89524#89525#0" expanded="false" />
-            <element signature="e#95870#95871#0" expanded="false" />
-            <element signature="e#95925#95926#0" expanded="false" />
-            <element signature="e#102001#102002#0" expanded="false" />
-            <element signature="e#102056#102057#0" expanded="false" />
-            <element signature="e#104172#104173#0" expanded="false" />
-            <element signature="e#104192#104193#0" expanded="false" />
-            <element signature="e#106405#106406#0" expanded="false" />
-            <element signature="e#106468#106469#0" expanded="false" />
-            <element signature="e#108849#108850#0" expanded="false" />
-            <element signature="e#108904#108905#0" expanded="false" />
-            <element signature="e#109411#109412#0" expanded="false" />
-            <element signature="e#109443#109444#0" expanded="false" />
-            <element signature="e#110589#110590#0" expanded="false" />
-            <element signature="e#110636#110637#0" expanded="false" />
-            <element signature="e#111536#111537#0" expanded="false" />
-            <element signature="e#111585#111586#0" expanded="false" />
-            <element signature="e#111978#111979#0" expanded="false" />
-            <element signature="e#112014#112015#0" expanded="false" />
-            <element signature="e#112835#112836#0" expanded="false" />
-            <element signature="e#112881#112882#0" expanded="false" />
-            <element signature="e#113316#113317#0" expanded="false" />
-            <element signature="e#113359#113360#0" expanded="false" />
-            <element signature="e#113801#113802#0" expanded="false" />
-            <element signature="e#113834#113835#0" expanded="false" />
-            <element signature="e#114284#114285#0" expanded="false" />
-            <element signature="e#114318#114319#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/SharedParamManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1311,16 +1170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#1363#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#1122#1123#0" expanded="false" />
-            <element signature="e#1148#1149#0" expanded="false" />
-            <element signature="e#1200#1201#0" expanded="false" />
-            <element signature="e#1236#1237#0" expanded="false" />
-            <element signature="e#1310#1311#0" expanded="false" />
-            <element signature="e#1359#1360#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1328,24 +1177,109 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ConcurrentAccessController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/impl/rolebase/RoleBaseCallerContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/factory/CallerContextFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/hazelcast/wso2/hazelcast/3.0.1.wso2v1/hazelcast-3.0.1.wso2v1.jar!/com/hazelcast/core/ICompletableFuture.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1724138">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/impl/domainbase/DomainBaseThrottleContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/impl/ipbase/IPBaseThrottleContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/factory/ThrottleContextFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="35" />
           <folding>
-            <element signature="e#0#2041#0" expanded="false" />
+            <element signature="e#0#2694#0" expanded="false" />
             <element signature="imports" expanded="false" />
-            <element signature="e#1387#1388#0" expanded="false" />
-            <element signature="e#1449#1450#0" expanded="false" />
-            <element signature="e#1501#1502#0" expanded="false" />
-            <element signature="e#1565#1566#0" expanded="false" />
+            <element signature="e#2643#2644#0" expanded="false" />
+            <element signature="e#2690#2691#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/hazelcast/wso2/hazelcast/3.0.1.wso2v1/hazelcast-3.0.1.wso2v1.jar!/com/hazelcast/core/IAtomicLong.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/hazelcast/wso2/hazelcast/3.0.1.wso2v1/hazelcast-3.0.1.wso2v1.jar!/com/hazelcast/core/IFunction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/hazelcast/hazelcast-all/3.4.2/hazelcast-all-3.4.2.jar!/com/hazelcast/concurrent/atomiclong/AtomicLongProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="144" column="24" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/hazelcast/wso2/hazelcast/3.0.1.wso2v1/hazelcast-3.0.1.wso2v1.jar!/com/hazelcast/core/AsyncAtomicLong.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/SharedParamManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="16" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleConstants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="152" column="65" selection-start-line="152" selection-start-column="65" selection-end-line="152" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#5753#0" expanded="false" />
-          </folding>
+          <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1357,53 +1291,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ConcurrentAccessController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/impl/rolebase/RoleBaseCallerContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-          <folding>
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1014#1015#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/factory/CallerContextFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/RoleBasedAccessRateController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <caret line="121" column="48" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleContext.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleDataHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="392" column="57" selection-start-line="392" selection-start-column="41" selection-end-line="392" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleReplicator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="66" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="66" />
+          <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -1411,20 +1310,49 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/CallerContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="221" column="80" selection-start-line="221" selection-start-column="80" selection-end-line="221" selection-end-column="80" />
+          <caret line="284" column="97" selection-start-line="284" selection-start-column="82" selection-end-line="284" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk1.6.0_45/src.zip!/java/util/concurrent/ConcurrentNavigableMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleReplicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
           <folding>
-            <element signature="e#0#20121#0" expanded="true" />
-            <element signature="imports" expanded="true" />
+            <element signature="e#2010#2294#0" expanded="true" />
+            <element signature="e#2293#2294#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleWindowReplicator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1351352">
-          <caret line="121" column="40" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="149" column="16" selection-start-line="149" selection-start-column="16" selection-end-line="149" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/wso2/carbon/throttle/core/ThrottleContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1053283">
+          <caret line="446" column="61" selection-start-line="446" selection-start-column="61" selection-end-line="446" selection-end-column="61" />
           <folding>
-            <element signature="e#0#6206#0" expanded="true" />
+            <element signature="e#3486#3487#0" expanded="true" />
+            <element signature="e#3530#3531#0" expanded="true" />
+            <element signature="e#11308#11309#0" expanded="true" />
+            <element signature="e#11346#11347#0" expanded="true" />
+            <element signature="e#18031#18032#0" expanded="true" />
+            <element signature="e#18058#18059#0" expanded="true" />
           </folding>
         </state>
       </provider>

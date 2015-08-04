@@ -21,6 +21,7 @@ package org.wso2.carbon.throttle.core;
 import org.apache.axis2.context.ConfigurationContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.wso2.carbon.throttle.core.factory.ThrottleContextFactory;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -80,6 +81,7 @@ public abstract class ThrottleContext {
         this.nextCleanTime = 0;
         this.throttleConfiguration = throttleConfiguration;
         this.debugOn = log.isDebugEnabled();
+        this.throttleWindowReplicator = ThrottleContextFactory.getThrottleWindowReplicatorInstance();
     }
 
     /**
@@ -345,12 +347,6 @@ public abstract class ThrottleContext {
 
     /**
      * Removes the caller and replicate the states
-     * Removes the caller and replicate the states.
-     * We should call this method only if its required.
-     * This method will perform write operation on distributed counter and may cause to hold cluster across lock.
-     * As of now only following operations will call this method.
-     * 01. Reset time window
-     * 02. Remove callers
      *
      * @param id The Id of the caller
      */
@@ -358,6 +354,19 @@ public abstract class ThrottleContext {
         if (id != null) {
 	        removeCaller(id);
             replicateCaller(id);
+        }
+    }
+
+    /**
+     * Removes the caller and replicate the states
+     *
+     * @param id The Id of the caller
+     */
+    public void removeAndDestroySharedParamsOfCaller(String id) {
+        if (id != null) {
+            removeCaller(id);
+            SharedParamManager.removeCounter(id);
+            SharedParamManager.removeTimestamp(id);
         }
     }
 
@@ -387,7 +396,7 @@ public abstract class ThrottleContext {
         if (configctx != null && keyPrefix != null) {
             try {
                 if (debugOn) {
-                    log.debug("Going to replicate the states of the caller : " + id);
+                    log.debug("Going to replicate the time window states of the caller : " + id);
                 }
 
                 throttleWindowReplicator.setConfigContext(configctx);
@@ -397,5 +406,59 @@ public abstract class ThrottleContext {
                 log.error("Error during the replicating window change ", e);
             }
         }
+    }
+
+    private class CleanupTask implements Runnable {
+        public void run() {
+            if (debugOn) {
+                log.debug("Cleaning up process is executing");
+            }
+                long currentTime = System.currentTimeMillis();
+                SortedMap map = ((ConcurrentNavigableMap) callersMap).headMap(new Long(currentTime));
+                if (map != null && map.size() > 0) {
+                    for (Iterator it = map.values().iterator(); it.hasNext(); ) {
+                        Object o = it.next();
+                        if (o != null) {
+                            if (o instanceof CallerContext) { // In the case nextAccessTime is unique
+                                CallerContext c = ((CallerContext) o);
+                                String key = c.getId();
+                                if (key != null) {
+                                    if (dataHolder != null && keyPrefix != null) {
+                                        c = dataHolder.getCallerContext(keyPrefix + key);
+                                    }
+                                    if (c != null) {
+                                        c.cleanUpCallers(
+                                                throttleConfiguration.getCallerConfiguration(key)
+                                                , getThrottleContext()
+                                                , currentTime);
+                                    }
+                                }
+                            }
+                            if (o instanceof LinkedList) { //In the case nextAccessTime of callers are same
+                                LinkedList callers = (LinkedList) o;
+                                for (Iterator ite = callers.iterator(); ite.hasNext(); ) {
+                                    CallerContext c = (CallerContext) ite.next();
+                                    String key = c.getId();
+                                    if (key != null) {
+                                        if (dataHolder != null && keyPrefix != null) {
+                                            c = (CallerContext) dataHolder.getCallerContext(keyPrefix + key);
+                                        }
+                                        if (c != null) {
+                                            c.cleanUpCallers(
+                                                    throttleConfiguration.getCallerConfiguration(key)
+                                                    , getThrottleContext()
+                                                    , currentTime);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    public ThrottleContext getThrottleContext() {
+        return this;
     }
 }
