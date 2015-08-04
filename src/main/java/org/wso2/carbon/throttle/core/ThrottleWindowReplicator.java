@@ -124,8 +124,8 @@ public class ThrottleWindowReplicator {
 									callerContext.setFirstAccessTime(sharedTimestamp);
 									callerContext.setNextTimeWindow(sharedNextWindow);
 									callerContext.setGlobalCounter(SharedParamManager.getDistributedCounter(callerId));
-									if(true) {
-										log.info("Setting time windows of caller context when window already set=" + callerId);
+									if(log.isDebugEnabled()) {
+										log.debug("Setting time windows of caller context when window already set=" + callerId);
 									}
 									//If some request comes to a nodes after some node set the shared timestamp then this
 									// check whether the first access time of local is in between the global time window
@@ -135,8 +135,8 @@ public class ThrottleWindowReplicator {
 									callerContext.setFirstAccessTime(sharedTimestamp);
 									callerContext.setNextTimeWindow(sharedNextWindow);
 									callerContext.setGlobalCounter(SharedParamManager.getDistributedCounter(callerId));
-									if (true) {
-										log.info("Setting time windows of caller context in intermediate interval=" +
+									if (log.isDebugEnabled()) {
+										log.debug("Setting time windows of caller context in intermediate interval=" +
 										         callerId);
 									}
 									//If above two statements not meets, this is the place where node set new window if
@@ -147,9 +147,8 @@ public class ThrottleWindowReplicator {
 									SharedParamManager.setSharedTimestamp(callerId, localFirstAccessTime);
 									SharedParamManager.setDistributedCounter(callerId, 0);
 									callerContext.resetGlobalCounter();
-									callerContext.resetLocalCounter();
-									if (true) {
-										log.info("Complete resetting time window of=" + callerId);
+									if (log.isDebugEnabled()) {
+										log.debug("Complete resetting time window of=" + callerId);
 									}
 								}
 							}

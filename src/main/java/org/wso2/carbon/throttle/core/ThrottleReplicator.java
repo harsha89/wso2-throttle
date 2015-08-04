@@ -118,8 +118,8 @@ public class ThrottleReplicator {
 	                                Long distributedCounter = SharedParamManager.asyncGetAndAddDistributedCounter(id, localCounter);
 	                                //Update instance global counter with distributed counter
                                     callerContext.setGlobalCounter(distributedCounter + localCounter);
-                                    if(true) {
-                                        log.info("Increasing counters of context :" + callerContext.getId() + " "
+                                    if(log.isDebugEnabled()) {
+                                        log.debug("Increasing counters of context :" + callerContext.getId() + " "
                                                   + "Replicated Count After  Update : distributedCounter =" +distributedCounter
                                                   + " localCounter=" + localCounter + " total=" + (distributedCounter + localCounter));
                                     }

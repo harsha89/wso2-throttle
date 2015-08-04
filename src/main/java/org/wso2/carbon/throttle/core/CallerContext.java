@@ -179,9 +179,9 @@ public abstract class CallerContext implements Serializable, Cloneable {
                         this.nextTimeWindow = currentTime + configuration.getUnitTime();
                         throttleContext.addAndFlushCallerContext(this, this.id);
                         throttleContext.replicateTimeWindow(this.id);
-                        //TODO
-                        if(true) {
-                            log.info("Caller=" + this.getId() + " has reset counters and added for replication when unit "
+
+                        if(log.isDebugEnabled()) {
+                            log.debug("Caller=" + this.getId() + " has reset counters and added for replication when unit "
                                       + "time is not over");
                         }
                     } else {
@@ -254,9 +254,9 @@ public abstract class CallerContext implements Serializable, Cloneable {
                     // registers caller and send the current state to others (clustered env)
                     throttleContext.addAndFlushCallerContext(this, id);
                     throttleContext.replicateTimeWindow(this.id);
-                    //TODO
-                    if(true) {
-                        log.info("Caller=" + this.getId() + " has reset counters and added for replication when unit "
+
+                    if(log.isDebugEnabled()) {
+                        log.debug("Caller=" + this.getId() + " has reset counters and added for replication when unit "
                                   + "time is over");
                     }
                 } else {
