@@ -305,7 +305,7 @@ public abstract class CallerContext implements Serializable, Cloneable {
                     }
                     //Removes the previous callercontext and Sends the current state to
                     //  others (clustered env)
-                    throttleContext.removeAndDestroySharedParamsOfCaller(id);
+                    throttleContext.removeAndFlushCaller(id);
                 }
             } else {
                 // if number of access for a unit time has just been greater than MAX
@@ -319,7 +319,7 @@ public abstract class CallerContext implements Serializable, Cloneable {
                         }
                         //Removes the previous callercontext and Sends
                         //  the current state to others (clustered env)
-                        throttleContext.removeAndDestroySharedParamsOfCaller(id);
+                        throttleContext.removeAndFlushCaller(id);
                     }
                 }
             }

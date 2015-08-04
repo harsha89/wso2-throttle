@@ -358,19 +358,6 @@ public abstract class ThrottleContext {
     }
 
     /**
-     * Removes the caller and replicate the states
-     *
-     * @param id The Id of the caller
-     */
-    public void removeAndDestroySharedParamsOfCaller(String id) {
-        if (id != null) {
-            removeCaller(id);
-            SharedParamManager.removeCounter(id);
-            SharedParamManager.removeTimestamp(id);
-        }
-    }
-
-    /**
      * Helper method to replicates states of the caller with given key
      *
      * @param id The id of the caller
@@ -406,59 +393,5 @@ public abstract class ThrottleContext {
                 log.error("Error during the replicating window change ", e);
             }
         }
-    }
-
-    private class CleanupTask implements Runnable {
-        public void run() {
-            if (debugOn) {
-                log.debug("Cleaning up process is executing");
-            }
-                long currentTime = System.currentTimeMillis();
-                SortedMap map = ((ConcurrentNavigableMap) callersMap).headMap(new Long(currentTime));
-                if (map != null && map.size() > 0) {
-                    for (Iterator it = map.values().iterator(); it.hasNext(); ) {
-                        Object o = it.next();
-                        if (o != null) {
-                            if (o instanceof CallerContext) { // In the case nextAccessTime is unique
-                                CallerContext c = ((CallerContext) o);
-                                String key = c.getId();
-                                if (key != null) {
-                                    if (dataHolder != null && keyPrefix != null) {
-                                        c = dataHolder.getCallerContext(keyPrefix + key);
-                                    }
-                                    if (c != null) {
-                                        c.cleanUpCallers(
-                                                throttleConfiguration.getCallerConfiguration(key)
-                                                , getThrottleContext()
-                                                , currentTime);
-                                    }
-                                }
-                            }
-                            if (o instanceof LinkedList) { //In the case nextAccessTime of callers are same
-                                LinkedList callers = (LinkedList) o;
-                                for (Iterator ite = callers.iterator(); ite.hasNext(); ) {
-                                    CallerContext c = (CallerContext) ite.next();
-                                    String key = c.getId();
-                                    if (key != null) {
-                                        if (dataHolder != null && keyPrefix != null) {
-                                            c = (CallerContext) dataHolder.getCallerContext(keyPrefix + key);
-                                        }
-                                        if (c != null) {
-                                            c.cleanUpCallers(
-                                                    throttleConfiguration.getCallerConfiguration(key)
-                                                    , getThrottleContext()
-                                                    , currentTime);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-    public ThrottleContext getThrottleContext() {
-        return this;
     }
 }
