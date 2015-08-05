@@ -187,6 +187,10 @@ public class SharedParamManager {
 		return ThrottleServiceDataHolder.getInstance().getHazelCastInstance();
 	}
 
+	/**
+	* This class is used for asynchronously update the value of distributed counter which is reside in the particular
+	* partition.
+	*/
 	private static class AddLocalCount implements IFunction<Long, Long> {
 
 		private long localCount;
