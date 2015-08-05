@@ -62,7 +62,7 @@ public class ThrottleWindowReplicator {
 				new ThreadFactory() {
 					public Thread newThread(Runnable r) {
 						Thread t = new Thread(r);
-						t.setName("Throttle replicator - " + replicatorCount++);
+						t.setName("Throttle window replicator - " + replicatorCount++);
 						return t;
 					}
 				});

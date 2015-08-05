@@ -82,6 +82,7 @@ public abstract class ThrottleContext {
         this.throttleConfiguration = throttleConfiguration;
         this.debugOn = log.isDebugEnabled();
         this.throttleWindowReplicator = ThrottleContextFactory.getThrottleWindowReplicatorInstance();
+        ThrottleContextFactory.getThrottleContextCleanupTaskInstance().addThrottleContext(this);
     }
 
     /**
@@ -358,7 +359,7 @@ public abstract class ThrottleContext {
     }
 
     /**
-     * Removes the caller and replicate the states
+     * Removes the caller and destroy shared params of caller
      *
      * @param id The Id of the caller
      */
@@ -392,6 +393,10 @@ public abstract class ThrottleContext {
         }
     }
 
+    /**
+     * Replicate the time window of this caller
+     * @param id
+     */
     public void replicateTimeWindow(String id) {
         if (configctx != null && keyPrefix != null) {
             try {
