@@ -18,7 +18,6 @@
 
 package org.wso2.carbon.throttle.core;
 
-import com.hazelcast.core.IFunction;
 import org.apache.axis2.context.ConfigurationContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

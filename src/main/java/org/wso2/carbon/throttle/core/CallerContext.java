@@ -277,7 +277,6 @@ public abstract class CallerContext implements Serializable, Cloneable {
 
     /**
      * Clean up the callers - remove all callers that have expired their time window
-     * TODO use different method to cleanup callers. And we can use different removeAndFlushCaller method which will destroy counters.
      * @param configuration
      * @param throttleContext
      * @param currentTime
@@ -299,27 +298,27 @@ public abstract class CallerContext implements Serializable, Cloneable {
         int maxRequest = configuration.getMaximumRequestPerUnitTime();
         if (!(maxRequest == 0)) {
             if ((this.globalCount.get() + this.localCount.get()) <= (maxRequest - 1)) {
-                if (this.nextTimeWindow != 0) {
+                if (this.nextTimeWindow != 0 && this.nextTimeWindow < (currentTime - this.unitTime)) {
                     if (log.isDebugEnabled()) {
                         log.debug("Removing caller with id " + this.id);
                     }
                     //Removes the previous callercontext and Sends the current state to
                     //  others (clustered env)
-                    throttleContext.removeAndFlushCaller(id);
+                    throttleContext.removeAndDestroyShareParamsOfCaller(id);
                 }
             } else {
                 // if number of access for a unit time has just been greater than MAX
                 // now same as a new session
                 // OR
-                //  if caller in prohibit session  and prohibit period has just over
-                if ((this.nextAccessTime == 0) || (this.nextAccessTime <= currentTime)) {
-                    if (this.nextTimeWindow != 0) {
+                //  if caller in prohibit session  and prohibit period has just over and only
+                if ((this.nextAccessTime == 0) || this.nextAccessTime < (currentTime - this.unitTime)) {
+                    if (this.nextTimeWindow != 0 && this.nextTimeWindow < (currentTime - this.unitTime)) {
                         if (log.isDebugEnabled()) {
                             log.debug("Removing caller with id " + this.id);
                         }
                         //Removes the previous callercontext and Sends
                         //  the current state to others (clustered env)
-                        throttleContext.removeAndFlushCaller(id);
+                        throttleContext.removeAndDestroyShareParamsOfCaller(id);
                     }
                 }
             }

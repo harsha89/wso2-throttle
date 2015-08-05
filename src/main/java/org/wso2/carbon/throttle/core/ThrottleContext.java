@@ -225,7 +225,7 @@ public abstract class ThrottleContext {
      * @throws ThrottleException
      */
 
-    public void processCleanList(long time) throws ThrottleException {
+    public void processCleanList(long time) {
         if (debugOn) {
             log.debug("Cleaning up process is executing");
         }
@@ -358,6 +358,19 @@ public abstract class ThrottleContext {
     }
 
     /**
+     * Removes the caller and replicate the states
+     *
+     * @param id The Id of the caller
+     */
+    public void removeAndDestroyShareParamsOfCaller(String id) {
+        if (id != null) {
+            removeCaller(id);
+            SharedParamManager.removeTimestamp(id);
+            SharedParamManager.removeCounter(id);
+        }
+    }
+
+    /**
      * Helper method to replicates states of the caller with given key
      *
      * @param id The id of the caller
@@ -391,6 +404,55 @@ public abstract class ThrottleContext {
 
             } catch (Exception e) {
                 log.error("Error during the replicating window change ", e);
+            }
+        }
+    }
+
+    /**
+     * This method will clean up callers which has next access time below from provided time
+     * This will first check the prohibited period and then it will check next access time lesser than unit time before a
+     * cleanup  a caller
+     *
+     * @param time to clean up the caller contexts
+     */
+    public void cleanupCallers(long time) {
+
+        SortedMap map = ((ConcurrentNavigableMap) callersMap).headMap(new Long(time));
+        if (map != null && map.size() > 0) {
+            for (Iterator it = map.values().iterator(); it.hasNext(); ) {
+                Object o = it.next();
+                if (o != null) {
+                    if (o instanceof CallerContext) { // In the case nextAccessTime is unique
+                        CallerContext c = ((CallerContext) o);
+                        String key = c.getId();
+                        if (key != null) {
+                            if (dataHolder != null && keyPrefix != null) {
+                                c = dataHolder.getCallerContext(keyPrefix + key);
+                            }
+                            if (c != null) {
+                                c.cleanUpCallers(
+                                        this.throttleConfiguration.getCallerConfiguration(key), this, time);
+                            }
+                        }
+                    }
+                    if (o instanceof LinkedList) { //In the case nextAccessTime of callers are same
+                        LinkedList callers = (LinkedList) o;
+                        Iterator ite = callers.iterator();
+                        while (ite.hasNext()) {
+                            CallerContext c = (CallerContext) ite.next();
+                            String key = c.getId();
+                            if (key != null) {
+                                if (dataHolder != null && keyPrefix != null) {
+                                    c = (CallerContext) dataHolder.getCallerContext(keyPrefix + key);
+                                }
+                                if (c != null) {
+                                    c.cleanUpCallers(
+                                            this.throttleConfiguration.getCallerConfiguration(key), this, time);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
