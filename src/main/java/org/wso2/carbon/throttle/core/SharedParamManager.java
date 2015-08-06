@@ -85,7 +85,10 @@ public class SharedParamManager {
 			asyncAtomicLong.asyncAddAndGet(value);
 			return currentGlobalCounter;
 		} else {
-			long currentCount = counters.get(id);
+			Long currentCount = counters.get(id);
+			if(currentCount == null) {
+				currentCount = 0L;
+			}
 			long updatedCount = currentCount + value;
 			counters.put(id, updatedCount);
 			return currentCount;
@@ -107,7 +110,10 @@ public class SharedParamManager {
 			asyncAtomicLong.asyncAlter(new AddLocalCount(value));
 			return currentGlobalCounter;
 		} else {
-			long currentCount = counters.get(id);
+			Long currentCount = counters.get(id);
+			if(currentCount == null) {
+				currentCount = 0L;
+			}
 			long updatedCount = currentCount + value;
 			counters.put(id, updatedCount);
 			return currentCount;

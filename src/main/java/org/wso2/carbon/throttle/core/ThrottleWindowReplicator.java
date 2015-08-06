@@ -146,6 +146,8 @@ public class ThrottleWindowReplicator {
 								} else {
 									SharedParamManager.setSharedTimestamp(callerId, localFirstAccessTime);
 									SharedParamManager.setDistributedCounter(callerId, 0);
+									//Reset global counter here as throttle replicator task may have updated global counter
+									//with dirty value
 									callerContext.resetGlobalCounter();
 									if (log.isDebugEnabled()) {
 										log.debug("Complete resetting time window of=" + callerId);
