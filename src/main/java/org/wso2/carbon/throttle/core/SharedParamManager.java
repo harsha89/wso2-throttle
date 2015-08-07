@@ -175,7 +175,7 @@ public class SharedParamManager {
 	}
 
 	/**
-	 * Destroy hazelcast shared timestamp counter, if it's local then remove the map entry
+	 * Destroy hazelcast shared timggestamp counter, if it's local then remove the map entry
 	 *
 	 * @param id of the caller context
 	 */

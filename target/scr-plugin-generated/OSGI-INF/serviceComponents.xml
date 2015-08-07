@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
     <scr:component enabled="true" immediate="true" name="throttle.core.services">
         <implementation class="org.wso2.carbon.throttle.core.internal.ThrottleServiceComponent"/>
         <property name="service.pid" value="throttle.core.services"/>
